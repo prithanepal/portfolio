@@ -74,6 +74,11 @@ body {
   flex-direction: column;
 }
 
+.contact p a {
+  text-decoration: none;
+  color: #ccc;
+}
+
 .social-links {
   display: flex;
   justify-content: center;
@@ -469,44 +474,53 @@ textarea:focus {
     left: 0;
     border-radius: 0 0 20px 20px;
     z-index: 999;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 0;
+    position: relative;
   }
 
   .avatar {
     width: 100px;
     height: 100px;
+    margin-bottom: 0;
   }
 
-  /* Show toggle button and hide contacts by default on mobile */
+  .social-links {
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+
   .toggle-contacts {
+    position: fixed;
     display: block;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 15px;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+    background-color: #333;
+    color: #ffdb70;
+    border: 1px solid #4a4444;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    margin: 15px auto;
     transition: background-color 0.3s;
-  }
-
-  .profile {
-    margin-bottom: -15px;
-  }
-
-  .toggle-contacts:hover {
-    background-color: #2980b9;
   }
 
   .contact-info {
     display: none;
   }
+
   .main-wrapper {
+    margin: 0;
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 320px;
   }
 
   .navbar ul {
@@ -518,10 +532,11 @@ textarea:focus {
     position: fixed;
     bottom: 0;
     left: 0;
-    margin-bottom: 0;
+    margin: 0;
     width: 100%;
     z-index: 999;
   }
+
   .navbar a {
     color: #ccc;
     text-decoration: none;

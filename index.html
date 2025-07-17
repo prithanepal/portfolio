@@ -13,38 +13,62 @@
   <body>
     <aside class="sidebar">
       <div class="profile">
-        <img src="images/avatar.jpg" alt="Profile Avatar" class="avatar" />
-        <h2>Pritha Nepal</h2>
-        <p class="role">Frontend Developer</p>
+        <img src="images/picture.jpg" alt="Profile Avatar" class="avatar" />
+        <div>
+          <h2>Pritha Nepal</h2>
+          <p class="role">Frontend Developer</p>
+        </div>
       </div>
       <div class="contact-info">
         <div>
           <i class="fa-regular fa-envelope"></i>
           <div class="contact">
             <p>Email</p>
-            <p>nepalpritha01@gmail.com</p>
+            <p>
+              <a href="mailto:nepalpritha1@gmail.com">nepalpritha1@gmail.com</a>
+            </p>
           </div>
         </div>
         <div>
           <i class="fa-solid fa-mobile-screen"></i>
           <div class="contact">
             <p>Phone</p>
-            <p>9810525335</p>
+            <p>
+              <a href="https://wa.me/9779862295077" target="_blank"
+                >9862295077</a
+              >
+            </p>
           </div>
         </div>
         <div>
           <i class="fa-solid fa-location-dot"></i>
           <div class="contact">
             <p>Address</p>
-            <p>Biratnagar, Nepal</p>
+            <p>
+              <a
+                href="https://www.google.com/maps?q=Biratnagar,+Nepal"
+                target="_blank"
+                >Biratnagar, Nepal</a
+              >
+            </p>
           </div>
         </div>
       </div>
       <div class="social-links">
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#"><i class="fa-brands fa-square-github"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a
+          href="https://www.linkedin.com/in/pritha-nepal-201898343/"
+          target="_blank"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+        <a href="https://github.com/dashboard" target="_blank"
+          ><i class="fa-brands fa-square-github"></i
+        ></a>
+        <a href="https://www.instagram.com/nepalpritha/?hl=en" target="_blank"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a href="https://www.facebook.com/pritha.nepal" target="_blank"
+          ><i class="fa-brands fa-facebook"></i
+        ></a>
       </div>
     </aside>
 
@@ -100,18 +124,18 @@
         if (window.innerWidth <= 768) {
           const toggleBtn = document.createElement("button");
           toggleBtn.className = "toggle-contacts";
-          toggleBtn.textContent = "Show Contacts";
-          document.querySelector(".profile").appendChild(toggleBtn);
+          toggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i>';
+          document.body.appendChild(toggleBtn);
 
           // Toggle contact info visibility
           toggleBtn.addEventListener("click", function () {
             const contactInfo = document.querySelector(".contact-info");
             if (contactInfo.style.display === "block") {
               contactInfo.style.display = "none";
-              toggleBtn.textContent = "Show Contacts";
+              toggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i>';
             } else {
               contactInfo.style.display = "block";
-              toggleBtn.textContent = "Hide Contacts";
+              toggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
             }
           });
         }
@@ -130,16 +154,17 @@
             if (!toggleBtn) {
               const newToggleBtn = document.createElement("button");
               newToggleBtn.className = "toggle-contacts";
-              newToggleBtn.textContent = "Show Contacts";
+              newToggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i>';
               document.querySelector(".profile").appendChild(newToggleBtn);
 
               newToggleBtn.addEventListener("click", function () {
                 if (contactInfo.style.display === "block") {
                   contactInfo.style.display = "none";
-                  newToggleBtn.textContent = "Show Contacts";
+                  newToggleBtn.innerHTML =
+                    '<i class="fas fa-chevron-down"></i>';
                 } else {
                   contactInfo.style.display = "block";
-                  newToggleBtn.textContent = "Hide Contacts";
+                  newToggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
                 }
               });
             }
