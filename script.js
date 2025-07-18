@@ -7,7 +7,6 @@ function loadContent(file) {
     .then((html) => {
       document.getElementById("main-content").innerHTML = html;
 
-      // ✅ Highlight only the clicked nav link
       const links = document.querySelectorAll(".nav-link");
       links.forEach((link) => {
         const page = link.getAttribute("data-page");
@@ -18,7 +17,7 @@ function loadContent(file) {
         }
       });
 
-      // ✅ Form validation
+      // Form validation
       if (
         file === "contact.html" &&
         typeof setupContactFormValidation === "function"
@@ -60,6 +59,7 @@ function setupContactFormValidation() {
       el.style.display = "none";
     });
     formSuccess.style.display = "none";
+    formSuccess.style.color = "green";
 
     let valid = true;
 
@@ -87,8 +87,32 @@ function setupContactFormValidation() {
     }
 
     if (valid) {
-      formSuccess.style.display = "block";
-      form.reset();
+      // EmailJS send
+      const serviceID = "service_psxg1oo";
+      const templateID = "template_ak9487k";
+
+      const formData = {
+        name: name.value,
+        email: email.value,
+        subject: subject.value,
+        message: message.value,
+      };
+
+      emailjs
+        .send(serviceID, templateID, formData)
+        .then(function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+          formSuccess.textContent = "Your message has been sent!";
+          formSuccess.style.color = "green";
+          formSuccess.style.display = "block";
+          form.reset();
+        })
+        .catch(function (error) {
+          console.error("FAILED...", error);
+          formSuccess.textContent = "Something went wrong. Please try again.";
+          formSuccess.style.color = "red";
+          formSuccess.style.display = "block";
+        });
     }
   });
 }
