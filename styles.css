@@ -157,7 +157,7 @@ body {
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
@@ -542,5 +542,8 @@ textarea:focus {
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
+  }
+  .service-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
